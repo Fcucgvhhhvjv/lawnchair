@@ -18,6 +18,16 @@ plugins {
     id 'org.gradle.android.cache-fix' version '3.0.1'
     id 'com.diffplug.spotless' version '6.25.0'
 }
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
 
 allprojects {
     plugins.withType(AndroidBasePlugin).configureEach {
@@ -354,6 +364,8 @@ dependencies {
 
     implementation 'androidx.profileinstaller:profileinstaller:1.3.1'
     baselineProfile projects.baselineProfile
+
+    implementation "com.github.farmerbb:libtaskbar:2.2.0" // see badge above for latest version
 
     implementation "androidx.dynamicanimation:dynamicanimation:1.0.0"
     implementation "androidx.recyclerview:recyclerview:1.3.2"
